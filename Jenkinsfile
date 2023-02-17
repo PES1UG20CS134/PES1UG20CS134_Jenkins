@@ -1,22 +1,23 @@
 pipeline {
     agent any
-
     stages {
         stage('Build') {
             steps {
                 sh 'g++ -o PES1UG20CS134 PES1UG20CS134.cpp'
+                echo 'BUILD SUCCESSFUL'
             }
         }
 
         stage('Test') {
             steps {
-                sh './PES1UG20CS134'
+                //sh './PES1UG20CS134' correct
+                sh './PES' //incorrect
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'deployed successfully'
+                echo 'DEPLOYMENT SUCCESSFUL'
             }
         }
     }
